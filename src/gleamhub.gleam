@@ -62,6 +62,14 @@ const ints: List(Int) = [1, 2, 3]
 
 const floats = [1.1, 2.2, 3.3]
 
+fn double(a: Int) -> Int {
+  multiply(a, 2)
+}
+
+fn multiply(a: Int, b: Int) -> Int {
+  a * b
+}
+
 pub fn main() -> Nil {
   io.println("Hello from gleamhub!")
 
@@ -158,5 +166,8 @@ pub fn main() -> Nil {
   echo ints == [1, 2, 3]
   echo floats
   echo floats == [1.1, 2.2, 3.3]
+
+  echo double(2)
+
   io.println("end of the file")
 }
