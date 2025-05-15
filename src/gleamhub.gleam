@@ -70,6 +70,14 @@ fn multiply(a: Int, b: Int) -> Int {
   a * b
 }
 
+fn add_one(argument: Int) -> Int {
+  argument + 1
+}
+
+fn twice(argument: Int, passed_function: fn(Int) -> Int) -> Int {
+  passed_function(passed_function(argument))
+}
+
 pub fn main() -> Nil {
   io.println("Hello from gleamhub!")
 
@@ -168,6 +176,11 @@ pub fn main() -> Nil {
   echo floats == [1.1, 2.2, 3.3]
 
   echo double(2)
+
+  echo twice(1, add_one)
+
+  let my_function = add_one
+  echo my_function(100)
 
   io.println("end of the file")
 }
