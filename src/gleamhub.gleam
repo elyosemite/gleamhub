@@ -3,6 +3,7 @@ import gleam/bytes_tree
 import gleam/float
 import gleam/int
 import gleam/io
+import gleam/list
 import gleam/option.{type Option, None, Some}
 import gleam/string
 import gleam/string_tree.{type StringTree}
@@ -17,6 +18,49 @@ pub fn great(option: Option(String)) -> String {
     None -> "Hello, World"
   }
 }
+
+pub fn seven_bit_little_endian_int() -> BitArray {
+  <<2:size(7)-little>>
+}
+
+pub fn study_blocks() {
+  io.println("Let's study blocks")
+  let fahrenheit = {
+    let degrees = 64
+    degrees
+  }
+  // echo degrees
+  //      ^^^^^^^ This will not compile
+
+  // Changing order of evaluation
+  let celsius = { fahrenheit - 32 } * 5 / 9
+  io.println(int.to_string(celsius))
+}
+
+pub fn print_list(name: String, items: List(Int)) {
+  let str_items = list.map(items, int.to_string)
+  let joined = string.join(str_items, ", ")
+  io.println(name <> ": [" <> joined <> "]")
+}
+
+pub fn study_lists() {
+  let ints = [1, 2, 3]
+
+  print_list("ints", ints)
+
+  // Immutably prepend
+  print_list("another list:", [-1, 0, ..ints])
+
+  // Uncomment this to see the error
+  // echo ["zero", ..ints]
+
+  // The original lists are unchanged
+  print_list("original list:", ints)
+}
+
+const ints: List(Int) = [1, 2, 3]
+
+const floats = [1.1, 2.2, 3.3]
 
 pub fn main() -> Nil {
   io.println("Hello from gleamhub!")
@@ -102,5 +146,17 @@ pub fn main() -> Nil {
   // Refering to a type in an unqualified way
   let _text: StringTree = string_tree.new()
 
+  // By using Type aliases
+  let one: UserId = 1
+  let two: Int = 2
+
+  study_blocks()
+
+  study_lists()
+
+  echo ints
+  echo ints == [1, 2, 3]
+  echo floats
+  echo floats == [1.1, 2.2, 3.3]
   io.println("end of the file")
 }
