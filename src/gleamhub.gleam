@@ -3,12 +3,20 @@ import gleam/bytes_tree
 import gleam/float
 import gleam/int
 import gleam/io
+import gleam/option.{type Option, None, Some}
 import gleam/string
 import gleam/string_tree.{type StringTree}
 
 // Type Alias
 pub type UserId =
   Int
+
+pub fn great(option: Option(String)) -> String {
+  case option {
+    Some(name) -> "Hello " <> name
+    None -> "Hello, World"
+  }
+}
 
 pub fn main() -> Nil {
   io.println("Hello from gleamhub!")
