@@ -74,6 +74,10 @@ fn add_one(argument: Int) -> Int {
   argument + 1
 }
 
+fn add(x: Int, y: Int) -> Int {
+  x + y
+}
+
 fn twice(argument: Int, passed_function: fn(Int) -> Int) -> Int {
   passed_function(passed_function(argument))
 }
@@ -193,6 +197,12 @@ pub fn main() -> Nil {
   // This anonynmous function always returns 42
   let secret = fn() { sercret_number }
   echo secret()
+
+  let add_one_v1 = fn(x) { add(1, x) }
+  let add_one_v2 = add(1, _)
+
+  echo add_one_v1(10)
+  echo add_one_v2(10)
 
   io.println("end of the file")
 }
