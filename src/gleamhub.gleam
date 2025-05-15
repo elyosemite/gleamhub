@@ -163,8 +163,8 @@ pub fn main() -> Nil {
   let _text: StringTree = string_tree.new()
 
   // By using Type aliases
-  let one: UserId = 1
-  let two: Int = 2
+  //let one: UserId = 1
+  //let two: Int = 2
 
   study_blocks()
 
@@ -181,6 +181,18 @@ pub fn main() -> Nil {
 
   let my_function = add_one
   echo my_function(100)
+
+  // Assign an anonymous function to a variable
+  let add_two_anonymously = fn(a) { a + 2 }
+  echo twice(1, add_two_anonymously)
+
+  // Pass an anonymous function as an argument
+  echo twice(1, fn(a) { a + 3 })
+
+  let sercret_number = 42
+  // This anonynmous function always returns 42
+  let secret = fn() { sercret_number }
+  echo secret()
 
   io.println("end of the file")
 }
