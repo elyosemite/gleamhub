@@ -82,6 +82,10 @@ fn twice(argument: Int, passed_function: fn(Int) -> Int) -> Int {
   passed_function(passed_function(argument))
 }
 
+fn generic_twice(argument: value, my_func: fn(value) -> value) -> value {
+  my_func(my_func(my_func(argument)))
+}
+
 pub fn main() -> Nil {
   io.println("Hello from gleamhub!")
 
@@ -203,6 +207,12 @@ pub fn main() -> Nil {
 
   echo add_one_v1(10)
   echo add_one_v2(10)
+
+  // Generic Functions
+  let add_three = fn(x) { x + 3 }
+  let exclaim = fn(x) { x <> "!" }
+  echo generic_twice(10, add_three)
+  echo generic_twice("Hello", exclaim)
 
   io.println("end of the file")
 }
