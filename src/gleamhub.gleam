@@ -90,6 +90,16 @@ fn calculate(value: Int, add added: Int, multiply multiplier: Int) {
   value * multiplier + added
 }
 
+fn calculate_total_cost(
+  quantity quantity: Float,
+  unit_price price: Float,
+  discount discount: Float,
+) -> Float {
+  let subtotal = quantity *. price
+  let discount = subtotal *. discount
+  subtotal -. discount
+}
+
 pub fn main() -> Nil {
   io.println("Hello from gleamhub!")
 
@@ -237,6 +247,21 @@ pub fn main() -> Nil {
 
   // Labelled arguments
   io.println(int.to_string(calculate(1, add: 2, multiply: 3)))
+
+  // Label shorthand syntax
+  let quantity = 5.0
+  let unit_price = 10.0
+  let discount = 0.2
+
+  // Using the regular label syntax
+  calculate_total_cost(
+    quantity: quantity,
+    unit_price: unit_price,
+    discount: discount,
+  )
+
+  // Using the shorthand syntax
+  calculate_total_cost(quantity:, unit_price:, discount:)
 
   io.println("end of the file")
 }
