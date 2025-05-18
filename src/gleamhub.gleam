@@ -86,55 +86,59 @@ fn generic_twice(argument: value, my_func: fn(value) -> value) -> value {
   my_func(my_func(my_func(argument)))
 }
 
+fn calculate(value: Int, add added: Int, multiply multiplier: Int) {
+  value * multiplier + added
+}
+
 pub fn main() -> Nil {
   io.println("Hello from gleamhub!")
 
-  echo 4
-  echo 1 + 1
-  echo 5 - 1
-  echo 5 / 2
-  echo 3 * 3
-  echo 5 % 2
+  // echo 4
+  // echo 1 + 1
+  // echo 5 - 1
+  // echo 5 / 2
+  // echo 3 * 3
+  // echo 5 % 2
 
-  // Int comparisons
-  echo 2 > 1
-  echo 2 < 1
-  echo 2 >= 1
-  echo 2 <= 1
+  // // Int comparisons
+  // echo 2 > 1
+  // echo 2 < 1
+  // echo 2 >= 1
+  // echo 2 <= 1
 
-  echo int.max(42, 77)
-  echo int.clamp(5, 10, 20)
+  // echo int.max(42, 77)
+  // echo int.clamp(5, 10, 20)
 
-  // Float Arithmetic
-  echo 1.0 +. 1.5
-  echo 5.0 -. 1.5
-  echo 5.0 /. 2.5
-  echo 3.0 *. 3.5
+  // // Float Arithmetic
+  // echo 1.0 +. 1.5
+  // echo 5.0 -. 1.5
+  // echo 5.0 /. 2.5
+  // echo 3.0 *. 3.5
 
-  // Float comparisons
-  echo 2.2 >. 1.3
-  echo 2.2 <. 1.3
-  echo 2.2 >=. 1.3
-  echo 2.2 <=. 1.3
+  // // Float comparisons
+  // echo 2.2 >. 1.3
+  // echo 2.2 <. 1.3
+  // echo 2.2 >=. 1.3
+  // echo 2.2 <=. 1.3
 
-  // Equality works for any type
-  echo 1.1 == 1.1
-  echo 2.1 == 1.2
+  // // Equality works for any type
+  // echo 1.1 == 1.1
+  // echo 2.1 == 1.2
 
-  // Division by zero is not an error
-  echo 3.14 /. 0.0
+  // // Division by zero is not an error
+  // echo 3.14 /. 0.0
 
-  // Standard library float functions
-  echo float.max(2.0, 9.5)
-  echo float.ceiling(5.4)
+  // // Standard library float functions
+  // echo float.max(2.0, 9.5)
+  // echo float.ceiling(5.4)
 
-  // Bool operators
-  echo True && False
-  echo True && True
-  echo False || False
-  echo False || True
+  // // Bool operators
+  // echo True && False
+  // echo True && True
+  // echo False || False
+  // echo False || True
 
-  echo bool.to_string(True)
+  // echo bool.to_string(True)
 
   // String Concat
   io.println("one " <> "two")
@@ -178,41 +182,41 @@ pub fn main() -> Nil {
 
   study_lists()
 
-  echo ints
-  echo ints == [1, 2, 3]
-  echo floats
-  echo floats == [1.1, 2.2, 3.3]
+  // echo ints
+  // echo ints == [1, 2, 3]
+  // echo floats
+  // echo floats == [1.1, 2.2, 3.3]
 
-  echo double(2)
+  // echo double(2)
 
-  echo twice(1, add_one)
+  // echo twice(1, add_one)
 
-  let my_function = add_one
-  echo my_function(100)
+  // let my_function = add_one
+  // echo my_function(100)
 
-  // Assign an anonymous function to a variable
-  let add_two_anonymously = fn(a) { a + 2 }
-  echo twice(1, add_two_anonymously)
+  // // Assign an anonymous function to a variable
+  // let add_two_anonymously = fn(a) { a + 2 }
+  // echo twice(1, add_two_anonymously)
 
-  // Pass an anonymous function as an argument
-  echo twice(1, fn(a) { a + 3 })
+  // // Pass an anonymous function as an argument
+  // echo twice(1, fn(a) { a + 3 })
 
-  let sercret_number = 42
-  // This anonynmous function always returns 42
-  let secret = fn() { sercret_number }
-  echo secret()
+  // let sercret_number = 42
+  // // This anonynmous function always returns 42
+  // let secret = fn() { sercret_number }
+  // echo secret()
 
-  let add_one_v1 = fn(x) { add(1, x) }
-  let add_one_v2 = add(1, _)
+  // let add_one_v1 = fn(x) { add(1, x) }
+  // let add_one_v2 = add(1, _)
 
-  echo add_one_v1(10)
-  echo add_one_v2(10)
+  // echo add_one_v1(10)
+  // echo add_one_v2(10)
 
   // Generic Functions
-  let add_three = fn(x) { x + 3 }
-  let exclaim = fn(x) { x <> "!" }
-  echo generic_twice(10, add_three)
-  echo generic_twice("Yuri", exclaim)
+  // let add_three = fn(x) { x + 3 }
+  // let exclaim = fn(x) { x <> "!" }
+  // echo generic_twice(10, add_three)
+  // echo generic_twice("Yuri", exclaim)
 
   // Pipelines
 
@@ -231,6 +235,8 @@ pub fn main() -> Nil {
   |> string.append("3", _)
   |> io.println
 
+  // Labelled arguments
+  io.println(int.to_string(calculate(1, add: 2, multiply: 3)))
+
   io.println("end of the file")
-  io.println("Hello world from end")
 }
