@@ -212,7 +212,25 @@ pub fn main() -> Nil {
   let add_three = fn(x) { x + 3 }
   let exclaim = fn(x) { x <> "!" }
   echo generic_twice(10, add_three)
-  echo generic_twice("Hello", exclaim)
+  echo generic_twice("Yuri", exclaim)
+
+  // Pipelines
+
+  // Without the pipe operator
+  io.println(string.drop_start(string.drop_end("Hello, Yuri!", 1), 7))
+
+  // With the pipe operator
+  "Hello, Thamirys"
+  |> string.drop_end(1)
+  |> string.drop_start(7)
+  |> io.println
+
+  // Changing order with function capturing
+  "1"
+  |> string.append("2")
+  |> string.append("3", _)
+  |> io.println
 
   io.println("end of the file")
+  io.println("Hello world from end")
 }
