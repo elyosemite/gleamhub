@@ -125,6 +125,21 @@ fn study_case_expression() {
   io.println(get_name("System still working?"))
 }
 
+fn study_list_patterns() {
+  let x = list.repeat(int.random(5), times: int.random(3))
+  list.each(x, fn(a) { io.println(int.to_string(a)) })
+
+  let result = case x {
+    [] -> "Empty list"
+    [1] -> "List of just 1"
+    [4, ..] -> "List starting with 4"
+    [_, _] -> "List of 2 elements"
+    _ -> "Some other list"
+  }
+
+  io.println(result)
+}
+
 pub fn main() -> Nil {
   io.println("Hello from gleamhub!")
 
@@ -289,6 +304,8 @@ pub fn main() -> Nil {
   calculate_total_cost(quantity:, unit_price:, discount:)
 
   study_case_expression()
+
+  study_list_patterns()
 
   io.println("end of the file")
 }
