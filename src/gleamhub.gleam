@@ -100,6 +100,15 @@ fn calculate_total_cost(
   subtotal -. discount
 }
 
+fn get_name(x: String) -> String {
+  case x {
+    //The pattern "Hello, " <> name matches any string that starts with "Hello, " 
+    // and assigns the rest of the string to the variable name.
+    "Hello, " <> name -> name
+    _ -> "Unknown"
+  }
+}
+
 fn study_case_expression() {
   let x = int.random(5)
   io.println(int.to_string(x))
@@ -112,6 +121,8 @@ fn study_case_expression() {
   }
 
   io.println(result)
+  io.println(get_name("Hello, Joe"))
+  io.println(get_name("System still working?"))
 }
 
 pub fn main() -> Nil {
