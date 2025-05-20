@@ -108,11 +108,7 @@ fn study_case_expression() {
     // Match specific values
     0 -> "Zero"
     1 -> "One"
-    2 -> "Two"
-    3 -> "Three"
-    4 -> "Four"
-    5 -> "Five"
-    _ -> "Other"
+    other -> "The other value is: " <> int.to_string(other)
   }
 
   io.println(result)
