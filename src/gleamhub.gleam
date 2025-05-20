@@ -100,6 +100,24 @@ fn calculate_total_cost(
   subtotal -. discount
 }
 
+fn study_case_expression() {
+  let x = int.random(5)
+  io.println(int.to_string(x))
+
+  let result = case x {
+    // Match specific values
+    0 -> "Zero"
+    1 -> "One"
+    2 -> "Two"
+    3 -> "Three"
+    4 -> "Four"
+    5 -> "Five"
+    _ -> "Other"
+  }
+
+  io.println(result)
+}
+
 pub fn main() -> Nil {
   io.println("Hello from gleamhub!")
 
@@ -262,6 +280,8 @@ pub fn main() -> Nil {
 
   // Using the shorthand syntax
   calculate_total_cost(quantity:, unit_price:, discount:)
+
+  study_case_expression()
 
   io.println("end of the file")
 }
