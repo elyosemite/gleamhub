@@ -140,6 +140,14 @@ fn study_list_patterns() {
   io.println(result)
 }
 
+pub fn factorial(x: Int) -> Int {
+  case x {
+    0 -> 1
+    1 -> 1
+    _ -> x * factorial(x - 1)
+  }
+}
+
 pub fn main() -> Nil {
   io.println("Hello from gleamhub!")
 
@@ -306,6 +314,8 @@ pub fn main() -> Nil {
   study_case_expression()
 
   study_list_patterns()
+
+  factorial(10)
 
   io.println("end of the file")
 }
