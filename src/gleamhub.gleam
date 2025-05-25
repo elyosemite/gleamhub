@@ -148,6 +148,20 @@ pub fn factorial(x: Int) -> Int {
   }
 }
 
+// Tail call Recursive
+pub fn factorial_from_tail_calls(x: Int) -> Int {
+  factorial_loop(x, 1)
+}
+
+// This function is private. it also is about tail call study
+fn factorial_loop(x: Int, accumulator: Int) -> Int {
+  case x {
+    0 -> accumulator
+    1 -> accumulator
+    _ -> factorial_loop(x - 1, accumulator * x)
+  }
+}
+
 pub fn main() -> Nil {
   io.println("Hello from gleamhub!")
 
@@ -316,6 +330,8 @@ pub fn main() -> Nil {
   study_list_patterns()
 
   factorial(10)
+
+  factorial_from_tail_calls(10)
 
   io.println("end of the file")
 }
