@@ -162,6 +162,50 @@ fn factorial_loop(x: Int, accumulator: Int) -> Int {
   }
 }
 
+// List Recursion
+
+// any list -> [32, 65, 92, 10, 47, 90]
+fn sum_list(list: List(Int), total: Int) -> Int {
+  case list {
+    [first, ..rest] -> sum_list(rest, total + first)
+    [] -> total
+  }
+}
+
+// Multiple subjects
+
+fn multiple_subjects() -> Nil {
+  let x = int.random(2)
+  let y = int.random(2)
+
+  let result = case x, y {
+    0, 0 -> "Both are zero"
+    0, _ -> "First is zero"
+    _, 0 -> "Second is zero"
+    _, _ -> "Neither are zero"
+  }
+  io.println(result)
+}
+
+fn alternative_patterns_in_case() -> Nil {
+  let number = int.random(10)
+
+  let result = case number {
+    2 | 4 | 6 | 8 -> "This is an even number"
+    1 | 3 | 5 | 7 -> "This is an odd number"
+    _ -> "I am not sure"
+  }
+  io.println(result)
+}
+
+fn get_first_non_empty(lists: List(List(t))) -> List(t) {
+  case lists {
+    [[_, ..] as first, ..] -> first
+    [_, ..rest] -> get_first_non_empty(rest)
+    [] -> []
+  }
+}
+
 pub fn main() -> Nil {
   io.println("Hello from gleamhub!")
 
@@ -332,6 +376,17 @@ pub fn main() -> Nil {
   factorial(10)
 
   factorial_from_tail_calls(10)
+
+  let sum = sum_list([18, 56, 35, 85, 91], 0)
+  echo sum
+
+  multiple_subjects()
+
+  alternative_patterns_in_case()
+
+  echo get_first_non_empty([[], [1, 2, 3], [4, 5]])
+  echo get_first_non_empty([[1, 2], [3, 4, 5], []])
+  echo get_first_non_empty([[], [], []])
 
   io.println("end of the file")
 }
