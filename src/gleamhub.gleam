@@ -206,6 +206,14 @@ fn get_first_non_empty(lists: List(List(t))) -> List(t) {
   }
 }
 
+fn get_first_larger(numbers: List(Int), limit: Int) -> Int {
+  case numbers {
+    [first, ..] if first > limit -> first
+    [_, ..rest] -> get_first_larger(rest, limit)
+    [] -> 0
+  }
+}
+
 pub fn main() -> Nil {
   io.println("Hello from gleamhub!")
 
@@ -387,6 +395,11 @@ pub fn main() -> Nil {
   echo get_first_non_empty([[], [1, 2, 3], [4, 5]])
   echo get_first_non_empty([[1, 2], [3, 4, 5], []])
   echo get_first_non_empty([[], [], []])
+
+  let numbers = [1, 2, 3, 4, 5]
+  echo get_first_larger(numbers, 3)
+  echo get_first_larger(numbers, 5)
+  echo get_first_larger(numbers, 6)
 
   io.println("end of the file")
 }
