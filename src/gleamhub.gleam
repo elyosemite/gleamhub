@@ -1,3 +1,5 @@
+import crosscutting/logger
+import foo/calculation
 import gleam/bool
 import gleam/bytes_tree
 import gleam/float
@@ -400,6 +402,11 @@ pub fn main() -> Nil {
   echo get_first_larger(numbers, 3)
   echo get_first_larger(numbers, 5)
   echo get_first_larger(numbers, 6)
+
+  logger.log_information("Before running the calculation")
+  let sum_two_numbers = calculation.sum(4, 32)
+  logger.log_information("After running the calculation")
+  io.println("The sum of 4 and 32 is: " <> int.to_string(sum_two_numbers))
 
   io.println("end of the file")
 }
