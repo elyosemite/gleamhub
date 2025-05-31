@@ -1,5 +1,4 @@
 import crosscutting/logger
-import foo/calculation
 import gleam/bool
 import gleam/bytes_tree
 import gleam/float
@@ -9,6 +8,7 @@ import gleam/list
 import gleam/option.{type Option, None, Some}
 import gleam/string
 import gleam/string_tree.{type StringTree}
+import powernuclearcalculator/calculation
 
 // Type Alias
 pub type UserId =
