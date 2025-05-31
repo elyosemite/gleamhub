@@ -1,4 +1,5 @@
 import gleam/io
+import gleam/option.{type Option, None, Some}
 
 pub type Fish {
   Starfish(name: String, favourite_color: String)
@@ -7,6 +8,13 @@ pub type Fish {
 
 pub type IceCream {
   IceCream(flavour: String)
+}
+
+pub fn get_favourite_color(fish: Fish) -> Option(String) {
+  case fish {
+    Starfish(_, favourite_color) -> Some(favourite_color)
+    Jellyfish(_, ..) -> None
+  }
 }
 
 pub fn handle_fish(fish: Fish) {
