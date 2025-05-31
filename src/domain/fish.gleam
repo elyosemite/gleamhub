@@ -15,3 +15,8 @@ pub fn handle_fish(fish: Fish) {
     Jellyfish(name, ..) -> io.println(name)
   }
 }
+
+pub fn handle_ice_cream(ice_cream: IceCream) {
+  let IceCream(flavour) = ice_cream
+  io.println(flavour)
+}
